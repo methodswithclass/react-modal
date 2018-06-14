@@ -25,25 +25,40 @@
 	position:absolute;
 	width:400px;
 	height:400px;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
 	border:1px solid black;
 	border-radius: 20px;
 	background-color: blue;
+}
+
+.modal-container {
+	width:90%;
+	height:50%;
+}
+
+
+.modal-title {
+
+	width: 80%;
+	font-weight: 1.2rem;
+	color:white;
+}
+
+
+.modal-button {
+
+	bottom:0;
 }
 
 
 
 .hidden {
 
-	display:none;
+	visibility: hidden;
 }
 
 
 
 .shown {
 
-
-	display:block;
+	visibility: visible;
 }
