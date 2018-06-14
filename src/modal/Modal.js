@@ -3,12 +3,15 @@ import './Modal.css';
 
 class Modal extends Component {
 
-  handleClick () {
+  handleClick (e) {
 
     var view = document.getElementById("modal-view");
 
-    view.classList.remove("shown");
-    view.classList.add("hidden");
+    if (view) {
+
+      view.classList.remove("shown");
+      view.classList.add("hidden");
+    }
 
   }
 
@@ -16,7 +19,7 @@ class Modal extends Component {
 
   render() {
     return (
-      <div id="modal-view" className="Modal">
+      <div id="modal-view" className="Modal hidden">
         <div className="modal-background" onClick={this.handleClick}></div>
         <div className="modal-inner center">
           

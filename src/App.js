@@ -5,12 +5,17 @@ import Modal from "./modal/Modal";
 
 class App extends Component {
 
+
   handleClick (e) {
 
       var view = document.getElementById("modal-view");
 
-      view.classList.remove("hidden");
-      view.classList.add("shown");
+
+      if (view) {
+
+        view.classList.remove("hidden");
+        view.classList.add("shown");
+      }
   }
 
 
