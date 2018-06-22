@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import ModalButton from "./modal/ModalButton";
+import Modal from "./modal/Modal";
 
 class App extends Component {
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <ModalButton />
+        <Modal />
         
       </div>
     );

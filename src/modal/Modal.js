@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Modal.css';
 
+import ModalBody from "./ModalBody"
+
 class Modal extends Component {
 
 
@@ -8,40 +10,33 @@ class Modal extends Component {
 
     super(props);
 
-    this.states = {
-      open:this.props.open
-    };
 
+    this.state = {
+      open:false
+    }
   }
 
   handleClick (e) {
 
-    this.setState({open:false});
-
+      this.setState({open:true})
   }
 
 
 
   render() {
     return (
-      <div className="Modal" style={{"visibility":(this.state.open ? 'visible' : 'hidden')}}>
-        <div className="modal-background" onClick={this.handleClick}></div>
-        <div className="modal-inner center">
-          
-          <div className="modal-container center">
-            <div className="modal-title hcenter">
-              <div className="center">This is the modal :)</div>
-            </div>
-            
-            <div className="modal-button btn hcenter" onClick={this.handleClick}>
-              <div className="center">close</div>
-            </div>
-
-          </div>
+      <div className="Button">
+        <div className="btn center" onClick={this.handleClick}>
+          <div className="center">open</div>
         </div>
+
+        <ModalBody open={this.state.open}/>
       </div>
     );
   }
 }
 
 export default Modal;
+
+
+
