@@ -9,6 +9,7 @@ body {
 
 
 .btn {
+	position:absolute;
 	width:100px;
 	height:50px;
 	margin:20px 0;
@@ -29,7 +30,6 @@ body {
 
 
 .hcenter {
-
 	position:absolute;
 	left:50%;
 	transform:translate(-50%, 0);
