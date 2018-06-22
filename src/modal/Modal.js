@@ -3,15 +3,20 @@ import './Modal.css';
 
 class Modal extends Component {
 
+
+  constructor (props) {
+
+    super(props);
+
+    this.states = {
+      open:this.props.open
+    };
+
+  }
+
   handleClick (e) {
 
-    var view = document.getElementById("modal-view");
-
-    if (view) {
-
-      view.classList.remove("shown");
-      view.classList.add("hidden");
-    }
+    this.setState({open:false});
 
   }
 
@@ -19,7 +24,7 @@ class Modal extends Component {
 
   render() {
     return (
-      <div id="modal-view" className="Modal hidden">
+      <div className="Modal" style={{"visibility":(this.state.open ? 'visible' : 'hidden')}}>
         <div className="modal-background" onClick={this.handleClick}></div>
         <div className="modal-inner center">
           
