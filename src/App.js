@@ -6,16 +6,19 @@ import Modal from "./modal/Modal";
 class App extends Component {
 
 
+  constructor (props) {
+
+    super(props);
+
+
+    this.state = {
+      open:false
+    }
+  }
+
   handleClick (e) {
 
-      var view = document.getElementById("modal-view");
-
-
-      if (view) {
-
-        view.classList.remove("hidden");
-        view.classList.add("shown");
-      }
+      this.setState({open:true})
   }
 
 
@@ -27,10 +30,11 @@ class App extends Component {
           <div className="center">open</div>
         </div>
 
-        <Modal />
+        <Modal open={this.state.open}/>
       </div>
     );
   }
 }
+
 
 export default App;
