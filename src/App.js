@@ -5,12 +5,11 @@ import Modal from "./modal/Modal";
 
 class App extends Component {
 
-
   render() {
     return (
       <div className="App">
 
-        <Modal />
+        <Modal message="Modal #"/>
         
       </div>
     );
