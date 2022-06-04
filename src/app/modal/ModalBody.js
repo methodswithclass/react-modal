@@ -1,42 +1,31 @@
 import React, { Component } from 'react';
 
 class ModalBody extends Component {
-  handleClick(e) {
-    this.props.click(e);
-  }
-
   render() {
-    var modalStyle = {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      visibility: this.props.open ? 'visible' : 'hidden',
-    };
+    const { handleClick, open, message, count } = this.props;
 
     return (
-      <div style={modalStyle}>
-        <div
-          className="modal-background"
-          onClick={(e) => this.handleClick(e)}
-        ></div>
-        <div className="modal-inner center">
-          <div className="modal-container center">
-            <div className="modal-title hcenter">
-              <div className="center">
-                {this.props.message}
-                {this.props.count}
+      <>
+        {open ? (
+          <>
+            <div className="modal-background" onClick={handleClick}></div>
+            <div className="modal-inner center">
+              <div className="modal-container center">
+                <div className="modal-title hcenter">
+                  <div className="center">{`${message}${count}`}</div>
+                </div>
+
+                <button
+                  className="modal-button btn hcenter"
+                  onClick={handleClick}
+                >
+                  close
+                </button>
               </div>
             </div>
-
-            <div
-              className="modal-button btn hcenter"
-              onClick={(e) => this.handleClick(e)}
-            >
-              <div className="center">close</div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </>
+        ) : null}
+      </>
     );
   }
 }

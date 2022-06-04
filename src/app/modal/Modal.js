@@ -14,23 +14,27 @@ class Modal extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    this.setState({
-      open: !this.state.open,
-      count: this.state.count + (this.state.open ? 1 : 0),
+  handleClick() {
+    this.setState((prevState) => {
+      const { open, count } = prevState;
+      return {
+        open: !open,
+        count: count + (open ? 1 : 0),
+      };
     });
   }
 
   render() {
+    const { message } = this.props;
+    const { open, count } = this.state;
     return (
       <div className="Modal">
-        <Button click={this.handleClick} buttonStyle={this.props.buttonStyle} />{' '}
-        {/*//*/}
+        <Button handleClick={this.handleClick} />
         <ModalBody
-          message={this.props.message}
-          open={this.state.open}
-          count={this.state.count}
-          click={this.handleClick}
+          message={message}
+          open={open}
+          count={count}
+          handleClick={this.handleClick}
         />
       </div>
     );
