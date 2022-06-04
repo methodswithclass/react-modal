@@ -1,44 +1,30 @@
-import React, { Component } from 'react';
-import Button from './Button';
+import React, { useState } from 'react';
 import ModalBody from './ModalBody';
 
-class Modal extends Component {
-  constructor(props) {
-    super(props);
+const Modal = (props) => {
+  const { message } = props;
 
-    this.state = {
-      open: false,
-      count: 1,
-    };
+  const [open, setOpen] = useState(false);
+  const [count, increment] = useState(1);
 
-    this.handleClick = this.handleClick.bind(this);
-  }
+  const handleClick = () => {
+    increment(count + (open ? 1 : 0));
+    setOpen(!open);
+  };
 
-  handleClick() {
-    this.setState((prevState) => {
-      const { open, count } = prevState;
-      return {
-        open: !open,
-        count: count + (open ? 1 : 0),
-      };
-    });
-  }
-
-  render() {
-    const { message } = this.props;
-    const { open, count } = this.state;
-    return (
-      <div className="Modal">
-        <Button handleClick={this.handleClick} />
-        <ModalBody
-          message={message}
-          open={open}
-          count={count}
-          handleClick={this.handleClick}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="Modal">
+      <button className="btn center" onClick={handleClick}>
+        open
+      </button>
+      <ModalBody
+        message={message}
+        open={open}
+        count={count}
+        handleClick={handleClick}
+      />
+    </div>
+  );
+};
 
 export default Modal;
