@@ -1,32 +1,23 @@
-
 import React, { Component } from 'react';
-import './Button.css';
-
-
-
 
 class Button extends Component {
-
-
-  handleClick (e) {
-
+  handleClick(e) {
     this.props.click(e);
   }
 
-
   render() {
-
-    return ( 
+    return (
       <div className="Button">
-        <div className="btn" style={this.props.buttonStyle}  onClick={(e) => this.handleClick(e)}>
+        <div
+          className="btn"
+          style={this.props.buttonStyle}
+          onClick={(e) => this.handleClick(e)}
+        >
           <div className="center">open</div>
         </div>
       </div>
-    ) 
+    );
   }
 }
-
-
-
 
 export default Button;
