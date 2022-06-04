@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ModalButton from './ModalButton';
+import Modal from './Modal';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ModalButton />, div);
+  ReactDOM.render(<Modal />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
